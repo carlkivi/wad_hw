@@ -56,3 +56,7 @@ color: white;
 header:hover {
 	box-shadow: 0 -20px 30px #4d4d4d;
 }
+
+input:focus{
+        background-color: #DCDCDC;
+    }
