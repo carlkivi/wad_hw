@@ -1,0 +1,54 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #6495ED;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	top: 0%;
+	z-index: 1;
+}
+
+nav {
+	display: flex;
+	background-color: #ffffff;
+	justify-content: space-between;
+}
+
+nav div{
+	height: 30px;
+	padding: 10px;
+}
+
+nav div img {
+	height: 100%;
+}
+
+nav div.search-container > input {
+box-sizing: border-box;
+height: 30px;
+width: 300px;
+margin: 0;
+padding: 5px;
+border: 1px solid #e0e0e0;
+}
+
+nav div.search-container > button {
+box-sizing: border-box;
+height: 30px;
+width: 80px;
+margin: 0;
+padding: 5px;
+border: 1px solid #e0e0e0;
+cursor: pointer;
+background-color: #4169E1;
+color: white;
+}
+
+@media screen and (max-width: 768px) {
+	section {
+		flex-direction: column;
+	}
+}
