@@ -53,12 +53,14 @@ main {
 	flex: 3;
 	order: 2;
 	min-height: 100vh;
-}
-
-main.main-content {
 	display: flex;
 	flex-direction: column;
 }
+
+/* main.main-content {
+	display: flex;
+	flex-direction: column;
+} */
 
 .left-sidebar {
 	order: 1;

@@ -22,6 +22,23 @@ $(function (){
                 alert(`error retrieving posts: ${JSON.stringify(e)}`);
             },
         })}
+    
+        getPosts()
+        .then((res) => {
+          for (let post of res) {
+            $("main").append(`
+            <div class="content-box">
+              <nav><div>Sep 18, 2020 15:16</div></nav>  
+              <div><h1>${post.title}</h1></div>
+              <div><img class="image" src=${post.url}></div>
+              <div class="text"><p>${post.body}</p></div>
+            </div>
+            `);
+          }
+        })
+        .catch(function (e) {
+          alert(e);
+        });
 
     function getPostsLocally() {
         return $.get({
@@ -48,4 +65,4 @@ $(function (){
         })
     }
 
-})
+});
