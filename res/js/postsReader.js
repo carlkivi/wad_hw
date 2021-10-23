@@ -51,6 +51,12 @@ $(function (){
             },
         })}
 
+    // function for dropdown menu
+    $(document).ready(function(){
+  		$("img.imgDropdown").click(function(){
+    		$("div.dropdown-content").toggle();
+  		});
+	});
 
 
 
