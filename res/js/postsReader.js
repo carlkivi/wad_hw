@@ -9,7 +9,7 @@ let jsonLocalURI = "/res/json/posts.json";
 
 //Määrake sellega kust andmeid võtta
 //Siis ei pea kogu aeg koodi välja/sisse kommenteerima
-let isDataLocal = false;
+let isDataLocal = true;
 
 $(function (){
     function getPosts() {
@@ -22,23 +22,6 @@ $(function (){
                 alert(`error retrieving posts: ${JSON.stringify(e)}`);
             },
         })}
-    
-        getPosts()
-        .then((res) => {
-          for (let post of res) {
-            $("main").append(`
-            <div class="content-box">
-              <nav><div>Sep 18, 2020 15:16</div></nav>  
-              <div><h1>${post.title}</h1></div>
-              <div><img class="image" src=${post.url}></div>
-              <div class="text"><p>${post.body}</p></div>
-            </div>
-            `);
-          }
-        })
-        .catch(function (e) {
-          alert(e);
-        });
 
     function getPostsLocally() {
         return $.get({
@@ -62,13 +45,34 @@ $(function (){
 
     // Siit algab main kood
     if(isDataLocal) {
-        getPostsLocally().then((response) => {
-            alert(`LOCALLY RECEIVED DATA: \n ${JSON.stringify(response)}`);
+        getPostsLocally().then((res) => {
+            for (let post of res) {
+                $("main").append(`
+                    <div class="content-box">
+                      <nav><div>Sep 18, 2020 15:16</div></nav>  
+                      <div><h1>${post.title}</h1></div>
+                      <div><img class="image" src=${post.url}></div>
+                      <div class="text"><p>${post.body}</p></div>
+                    </div>
+                `);
+            }
         })
     } else {
-        getPosts().then((response) => {
-            alert(`DATA RECEIVED FROM ENDPOINT: \n ${JSON.stringify(response)}`);
+        getPosts().then((res) => {
+            for (let post of res) {
+                $("main").append(`
+                    <div class="content-box">
+                      <nav><div>Sep 18, 2020 15:16</div></nav>  
+                      <div><h1>${post.title}</h1></div>
+                      <div><img class="image" src=${post.url}></div>
+                      <div class="text"><p>${post.body}</p></div>
+                    </div>
+                `);
+            }
         })
+        .catch(function (e) {
+            alert(e);
+        });
     }
 
 });
